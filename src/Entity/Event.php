@@ -57,7 +57,7 @@ class Event
 
 
      /**
-     * @ORM\Column(type="bigint")
+     * @ORM\Column(type="integer")
      */
     private $phone;
 
@@ -168,12 +168,12 @@ class Event
         return $this;
     }
 
-    public function getPhone(): ?bigint
+    public function getPhone(): ?int
     {
         return $this->phone;
     }
 
-    public function setPhone(bigint $phone): self
+    public function setPhone(int $phone): self
     {
         $this->phone = $phone;
 
