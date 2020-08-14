@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Welcome {% endblock %}
+
+
+{% block body %}
+
+
+	 {% for event in  events  %}
+                <ul>
+                        <li>{{ event.name }}</li>
+                        <li>{{ event.image }}</li>
+                        <li>{{ event.capacity }}</li>
+                        <li>{{ event.address }}</li>
+                        <li>{{ event.description }}</li>
+                        <li>{{ event.email }}</li>
+                        <li>{{ event.url }}</li>
+                        <li>{{ event.date }}</li>
+
+                       
+                </ul>
+        {% endfor %}
+
+{% endblock %}
