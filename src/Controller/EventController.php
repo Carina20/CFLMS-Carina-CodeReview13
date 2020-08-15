@@ -34,7 +34,7 @@ class EventController extends Controller
                      'No event found for id '.$eventId
                 );
             } else {
-                     return new Response($eventId . $event->getName());
+                     return new Response("<h1>" .$event->getName(). "</h1>");
                      return $this->render('event/details_CR13.html.twig');
         }
        }
