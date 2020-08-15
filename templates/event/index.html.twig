@@ -9,6 +9,8 @@
         #footer_logo {font-size:12pt; text-align: center; padding-top:20px; color: purple;}
         button {background-color: rgb(255,80,80); color: purple; border: none; }
         thead {color:purple;}
+        #fullIndex_container {background: url(https://images.pexels.com/photos/3811074/pexels-photo-3811074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-size: 100%;}
+  
 </style>
         {% block stylesheets %}{% endblock %}
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -19,7 +21,10 @@
 
 {% endblock  %}
 
+
 {% block body %}
+
+
 
 <div class="container" id="index_container">
 	<br>
@@ -45,7 +50,6 @@
 
    <thead>
        <tr>
-           <th></th>
            <th style="width:130px; padding-left:10px; padding-right:50px"><h3>Event</h3></th>
            <th><h4>Date</h4></th>
        </tr>
@@ -53,7 +57,6 @@
 
    <tbody>
        <tr>
-           <th style="color:purple;">{{event.id}}</th> {# the id of the todo #}
            <td style="width:130px; padding-left:10px; padding-right:50px">{{event.name}}</td> {# the name of the todo #}
            <td>{{event.date}}</td>   {# <td>{{event.date|date('F j, Y, g:i a')}}</td> #}{# the duedate of the todo, when we want to print a date we must choose the format |date('F j, Y, g:i a') otherwise we will have error #}
         </tr>
@@ -83,6 +86,7 @@
 
 
 </div> {#------------------end of index_container -------------------------#}
+
 <br>
 
 {% endblock %}

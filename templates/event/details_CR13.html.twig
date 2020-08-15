@@ -8,6 +8,9 @@
   		nav {background-color: rgb(255,80,80); }
         h2,ul {text-align: center; }
         ul {list-style-type: none;}
+        #footer_div {height: 70px; background-color: rgb(255,80,80); }
+        #footer_logo {font-size:12pt; text-align: center; padding-top:20px; color: purple;}
+        #fullIndex_container {background-color: rgb(255,255,221);}
 	</style>
         {% block stylesheets %}{% endblock %}
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -20,15 +23,16 @@
 {% block body %}
 
 	<br>
-       <h2>{{event.name}}</h2>
+       <h2 style="color:purple">{{event.name}}</h2>
  	<br>
        <ul>
                <li><b>Date & Time </b>{{event.date}}</li><br>
                <div id="image_detail"><img src="{{event.image}}" alt="EventImage" width="50%"></div><br>
-               <li>Maximum number of people: {{event.capacity}}  </li><br>
-       			<li>{{event.description}}</li><br>
+               <li> <b>Event number</b> (id): {{event.id}} </li><br>
+               <li><b>Maximum number of people:</b> {{event.capacity}}  </li><br>
+       			<li><b>Description:</b> {{event.description}}</li><br>
        			<li><b>More info:</b> {{event.url}}</li><br>
-       			<li><b>Contact:</b> {{event.email}} {{event.phone}}</li>
+       			<li><b>Contact:</b> {{event.email}} &#128222 {{event.phone}}</li>
        			
    
 </ul>

@@ -21,6 +21,7 @@ class EventController extends Controller
        return $this->render('event/index.html.twig', array('events'=>$events));
    }
 
+
     /**
     * @Route("/details/{id}", name="details_page")
     */

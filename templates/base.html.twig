@@ -8,6 +8,7 @@
         nav {background-color: rgb(255,80,80); }
         #footer_div {height: 70px; background-color: rgb(255,80,80); }
         #footer_logo {font-size:12pt; text-align: center; padding-top:20px; color: purple;}
+        #fullIndex_container {background-color: rgb(255,255,221);}
 </style>
         {% block stylesheets %}{% endblock %}
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -33,10 +34,15 @@
   </div>
 
 </nav>
+
+
+
+<div class="container-fluid" id="fullIndex_container">
         
-        {% block body %}{% endblock %}
+      {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
 
+</div> {#------------------end of fullIndex_container -------------------------#}
 
 <footer>
 
