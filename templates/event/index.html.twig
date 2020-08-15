@@ -5,22 +5,31 @@
 
 {% block body %}
 
+<h2 class="page-header"> Upcoming events </h2>
+  <table class="table table-striped">
+   <thead>
+       <tr>
+           <th></th>
+           <th>Event</th>
+           <th>Date</th>
+           <th></th>
+       </tr>
+   </thead>
+   {% for event in  events  %}
+   <tbody>
+       <tr>
+           <th scope="row">{{event.id}}</th> {# the id of the todo #}
+           <td>{{event.name}}</td> {# the name of the todo #}
+           <td>{{event.date}}</td>   {# <td>{{event.date|date('F j, Y, g:i a')}}</td> #}{# the duedate of the todo, when we want to print a date we must choose the format |date('F j, Y, g:i a') otherwise we will have error #}
+           <td> <a href="/details/{{event.id}}" class="btn btn-primary">Details</a> {# a tag to go to the path /details/{{todo.id}} so we send the id of the record with the path (like when we are using get method ) #}
+                   
+           <a href="/edit/{{event.id}}" class="btn btn-dark">Edit</a>
+           <a href="/delete/{{event.id}}" class="btn btn-danger">Delete</a>        
+           </td>
+       </tr>
+{% endfor %}
+   </tbody>
+   </table>
 
-	 {% for event in  events  %}
-                <ul>
-                        <li>{{ event.name }}</li>
-                        <li>{{ event.image }}</li>
-                        <li>{{ event.capacity }}</li>
-                        <li>{{ event.address }}</li>
-                        <li>{{ event.description }}</li>
-                        <li>{{ event.email }}</li>
-                        <li>{{ event.url }}</li>
-                        <li>{{ event.date }}</li>
-                        <li>{{ event.phone }}</li>
-
-
-                       
-                </ul>
-        {% endfor %}
 
 {% endblock %}
