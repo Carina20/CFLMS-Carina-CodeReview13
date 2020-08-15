@@ -1,35 +1,91 @@
 {% extends 'base.html.twig' %}
+{% block head %}
+<meta charset="UTF-8" author="Carina" content= "Big Events">
+	<meta name="viewport" content ="width=device-width, initial-scale=1.0">
+        <title >{% block title %}Welcome>{% endblock %}</title>
+  <style type="text/css">
+        nav {background-color: rgb(255,80,80); }
+        #footer_div {height: 70px; background-color: rgb(255,80,80); }
+        #footer_logo {font-size:12pt; text-align: center; padding-top:20px; color: purple;}
+        button {background-color: rgb(255,80,80); color: purple; border: none; }
+        thead {color:purple;}
+</style>
+        {% block stylesheets %}{% endblock %}
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-{% block title %} Welcome {% endblock %}
 
+{% endblock  %}
 
 {% block body %}
 
-<h2 class="page-header"> Upcoming events </h2>
-  <table class="table table-striped">
+<div class="container" id="index_container">
+	<br>
+
+	<div class="row">
+
+		<h2 class="page-header" style="color:purple;"> Upcoming events </h2>
+
+	</div>
+	<hr>
+
+
+<div class="container_events">
+
+
+{% for event in  events  %}
+
+	<div class="row">
+
+		<div class="col">
+
+  <table id="table1">
+
    <thead>
        <tr>
            <th></th>
-           <th>Event</th>
-           <th>Date</th>
-           <th></th>
+           <th style="width:130px; padding-left:10px; padding-right:50px"><h3>Event</h3></th>
+           <th><h4>Date</h4></th>
        </tr>
    </thead>
-   {% for event in  events  %}
+
    <tbody>
        <tr>
-           <th scope="row">{{event.id}}</th> {# the id of the todo #}
-           <td>{{event.name}}</td> {# the name of the todo #}
+           <th style="color:purple;">{{event.id}}</th> {# the id of the todo #}
+           <td style="width:130px; padding-left:10px; padding-right:50px">{{event.name}}</td> {# the name of the todo #}
            <td>{{event.date}}</td>   {# <td>{{event.date|date('F j, Y, g:i a')}}</td> #}{# the duedate of the todo, when we want to print a date we must choose the format |date('F j, Y, g:i a') otherwise we will have error #}
-           <td> <a href="/details/{{event.id}}" class="btn btn-primary">Details</a> {# a tag to go to the path /details/{{todo.id}} so we send the id of the record with the path (like when we are using get method ) #}
+        </tr>
+    </tbody>
+    </table>
+    <table id="table2">
+        <tr>
+        	<td><img src="{{event.image}}" alt="EventImage" width="50%"></td>
+        </tr>
+        <tr>
+           <td> <a href="/details/{{event.id}}"><button type="button" style="font-weight:bold">Details</button></a> {# a tag to go to the path /details/{{todo.id}} so we send the id of the record with the path (like when we are using get method ) #}
                    
-           <a href="/edit/{{event.id}}" class="btn btn-dark">Edit</a>
-           <a href="/delete/{{event.id}}" class="btn btn-danger">Delete</a>        
+           <a href="/edit/{{event.id}}"><button type="button">Edit</button></a>
+           <a href="/delete/{{event.id}}"><button type="button">Delete</button></a>        
            </td>
        </tr>
-{% endfor %}
-   </tbody>
-   </table>
+      </table>
 
+</div> {#------------------end of column -------------------------#}
+
+</div> {#------------------end of row -------------------------#}
+
+{% endfor %}
+
+</div> {#------------------end of container_events -------------------------#}
+
+
+
+</div> {#------------------end of index_container -------------------------#}
+<br>
 
 {% endblock %}
+
+
+
