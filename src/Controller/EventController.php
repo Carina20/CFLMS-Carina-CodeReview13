@@ -22,22 +22,13 @@ class EventController extends Controller
    }
 
     /**
-    * @Route("/details/{eventId}", name="detailsAction")
-    */ 
-         public function showdetailsAction ($eventId)
-        {
-            $event = $this->getDoctrine()
-                ->getRepository(Event::class)
-                ->find($eventId);
-             if (!$eventId) {
-                 throw $this->createNotFoundException(
-                     'No event found for id '.$eventId
-                );
-            } else {
-                     return new Response("<h1>" .$event->getName(). "</h1>");
-                     return $this->render('event/details_CR13.html.twig');
-        }
-       }
+    * @Route("/details/{id}", name="details_page")
+    */
+   public function detailsAction($id)
+   {
+       $event = $this->getDoctrine()->getRepository('App:Event')->find($id);
+       return $this->render('event/details_CR13.html.twig', array('event' => $event));
+   }
 
 
    /**
@@ -56,12 +47,6 @@ class EventController extends Controller
        return $this->render('event/edit_CR13.html.twig');
    }
 
-   /**
-    * @Route("/details/{id}", name="details_page")
-    */
-   public function detailsAction($id)
-   {
-       return $this->render('event/details_CR13.html.twig');
-   }
+
 }
 ?>
