@@ -4,11 +4,11 @@
 	<meta name="viewport" content ="width=device-width, initial-scale=1.0">
         <title >{% block title %}Welcome>{% endblock %}</title>
   <style type="text/css">
-        nav {background-color: rgb(255,80,80); }
+        nav {background-color: rgb(255,80,80); color: rgb(255,71,255); }
         #footer_div {height: 70px; background-color: rgb(255,80,80); }
         #footer_logo {font-size:12pt; text-align: center; padding-top:20px; color: purple;}
         button {background-color: rgb(255,80,80); color: purple; border: none; }
-        thead {color:purple;}
+        thead {color:rgb(154,0,154);}
         #fullIndex_container {background: url(https://images.pexels.com/photos/3811074/pexels-photo-3811074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-size: 100%;}
   
 </style>
@@ -51,14 +51,14 @@
    <thead>
        <tr>
            <th style="width:130px; padding-left:10px; padding-right:50px"><h3>Event</h3></th>
-           <th><h4>Date</h4></th>
+           <th><h3>Date</h3></th>
        </tr>
    </thead>
 
    <tbody>
        <tr>
-           <td style="width:130px; padding-left:10px; padding-right:50px">{{event.name}}</td> {# the name of the todo #}
-           <td>{{event.date}}</td>   {# <td>{{event.date|date('F j, Y, g:i a')}}</td> #}{# the duedate of the todo, when we want to print a date we must choose the format |date('F j, Y, g:i a') otherwise we will have error #}
+           <td style="width:190px; padding-left:10px; padding-right:50px; font-size:14pt; font-weight:bold;color: rgb(72,0,72)">{{event.name}}</td> {# the name of the todo #}
+           <td style="font-size:14pt; font-weight:bold; color: rgb(72,0,72)">{{event.date}}</td>   {# <td>{{event.date|date('F j, Y, g:i a')}}</td> #}{# the duedate of the todo, when we want to print a date we must choose the format |date('F j, Y, g:i a') otherwise we will have error #}
         </tr>
     </tbody>
     </table>
@@ -73,7 +73,7 @@
            <a href="/delete/{{event.id}}"><button type="button">Delete</button></a>        
            </td>
        </tr>
-      </table>
+      </table><br>
 
 </div> {#------------------end of column -------------------------#}
 

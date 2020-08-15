@@ -10,7 +10,7 @@
         ul {list-style-type: none;}
         #footer_div {height: 70px; background-color: rgb(255,80,80); }
         #footer_logo {font-size:12pt; text-align: center; padding-top:20px; color: purple;}
-        #fullIndex_container {background-color: rgb(255,255,221);}
+        #fullIndex_container {background: url(https://images.pexels.com/photos/3811074/pexels-photo-3811074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-size: 100%;}
 	</style>
         {% block stylesheets %}{% endblock %}
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -32,9 +32,8 @@
                <li><b>Maximum number of people:</b> {{event.capacity}}  </li><br>
        			<li><b>Description:</b> {{event.description}}</li><br>
        			<li><b>More info:</b> {{event.url}}</li><br>
-       			<li><b>Contact:</b> {{event.email}} &#128222 {{event.phone}}</li>
-       			
+       			<li><b>Contact:</b> {{event.email}} &#128222 {{event.phone}}</li>		
    
 </ul>
-
+<br>
    {% endblock %}

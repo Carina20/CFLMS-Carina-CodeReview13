@@ -8,7 +8,7 @@
         nav {background-color: rgb(255,80,80); }
         #footer_div {height: 70px; background-color: rgb(255,80,80); }
         #footer_logo {font-size:12pt; text-align: center; padding-top:20px; color: purple;}
-        #fullIndex_container {background-color: rgb(255,255,221);}
+        #fullIndex_container {background: url(https://images.pexels.com/photos/3811074/pexels-photo-3811074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-size: 100%;}
 </style>
         {% block stylesheets %}{% endblock %}
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -18,6 +18,7 @@
    {% endblock  %}
     <body>
     	<nav class="navbar navbar-expand navbar">
+         <li class="navbar-brand" style="color: rgb(154,0,154)">StadtEvents</li>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -25,10 +26,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" style="color: purple;" id="home" href="/index">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" style="color: rgb(154,0,154);" id="home" href="/index">Home <span class="sr-only">(current)</span></a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" style="color: purple;" id="Create_file" href="/create"> Add event </a>
+        <a class="nav-link" style="color: rgb(154,0,154);" id="Create_file" href="/create"> Add event </a>
       </li>
     </ul>
   </div>
@@ -48,7 +49,7 @@
 
 
 <div id="footer_div">
-    <div id="footer_logo">&#169;ViennaEvents</div>
+    <div id="footer_logo">&#169;StadtEvents</div>
   </div>
 
 </footer>
