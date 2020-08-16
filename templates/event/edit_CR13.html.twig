@@ -1,7 +1,7 @@
 
 {% extends 'base.html.twig' %}
 {% block head %}
-	<title>{% block title %} Add event {% endblock %}</title>
+	<title>{% block title %} Edit event {% endblock %}</title>
 	<meta charset="UTF-8" author="Carina" content= "Big Events">
 	<meta name="viewport" content ="width=device-width, initial-scale=1.0">
 	<style type="text/css">
@@ -18,8 +18,10 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 {% endblock  %}
 {% block body %}
-<h2 class="page-header">Edit Event</h2>
+	<br>
+<h2 class="page-header">Edit Event</h2><br>
 {{form_start(form)}}
 {{form_widget(form)}}
 {{form_end(form)}}
+<br>
 {% endblock %}

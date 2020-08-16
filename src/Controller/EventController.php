@@ -164,5 +164,21 @@ class EventController extends Controller
    }
 
 
+
+    /**
+    * @Route("/delete/{id}", name="event_delete")
+    */
+   public function deleteAction($id){
+                $em = $this->getDoctrine()->getManager();
+           $event = $em->getRepository('App:Event')->find($id);
+           $em->remove($event);
+            $em->flush();
+           $this->addFlash(
+                   'notice',
+                   'Event removed'
+                   );
+            return $this->redirectToRoute('home_page');
+   }
+
 }
 ?>
