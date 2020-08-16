@@ -53,7 +53,7 @@ class EventController extends Controller
            ->add('phone', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
             ->add('email', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
              ->add('address', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
-   ->add('save', SubmitType::class, array('label'=> 'Create Todo', 'attr' => array('class'=> 'btn-primary', 'style'=>'margin-bottom:15px')))
+   ->add('save', SubmitType::class, array('label'=> 'Add Event', 'attr' => array('class'=> 'btn-light', 'style'=>'margin-bottom:15px')))
        ->getForm();
        $form->handleRequest($request);
        
@@ -73,7 +73,7 @@ class EventController extends Controller
            $capacity = $form['capacity']->getData();
            $url = $form['url']->getData();
            
-
+           
 /* these functions we bring from our entities, every column have a set function and we put the value that we get from the form */
            $event->setName($name);
            $event->setDate($date);
@@ -100,9 +100,67 @@ class EventController extends Controller
    /**
     * @Route("/edit/{id}", name="edit_page")
     */
-   public function editAction($id)
-   {
-       return $this->render('event/edit_CR13.html.twig');
+   public function editAction( $id, Request $request){
+/* Here we have a variable todo and it will save the result of this search and it will be one result because we search based on a specific id */
+   $event = $this->getDoctrine()->getRepository('App:Event')->find($id);
+/* Now we will use set functions and inside this set functions we will bring the value that is already exist using get function for example we have setName() and inside it we will bring the current value and use it again */
+           $event->setName($event->getName());
+           $event->setDate($event->getDate());
+           $event->setDescription($event->getDescription());
+           $event->setImage($event->getImage());
+           $event->setCapacity($event->getCapacity());
+           $event->setURL($event->getURL());
+           $event->setEmail($event->getEmail());
+           $event->setPhone($event->getPhone());
+           $event->setAddress($event->getAddress());
+           
+/* Now when you type createFormBuilder and you will put the variable todo the form will be filled of the data that you already set it */
+       $form = $this->createFormBuilder($event)->add('name', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-botton:15px')))
+       ->add('date', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
+       ->add('description', TextareaType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
+        ->add('image', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
+         ->add('capacity', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
+          ->add('url', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
+           ->add('phone', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
+            ->add('email', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
+             ->add('address', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
+   ->add('save', SubmitType::class, array('label'=> 'Update event', 'attr' => array('class'=> 'btn-light', 'style'=>'margin-botton:15px')))
+       ->getForm();
+       $form->handleRequest($request);
+       if($form->isSubmitted() && $form->isValid()){
+           //fetching data
+           $name = $form['name']->getData();
+           $date = $form['date']->getData();
+           $email = $form['email']->getData();
+           $address = $form['address']->getData();
+           $description = $form['description']->getData();
+           $image = $form['image']->getData();
+           $phone = $form['phone']->getData();
+           $capacity = $form['capacity']->getData();
+           $url = $form['url']->getData();
+
+           $em = $this->getDoctrine()->getManager();
+
+           $event = $em->getRepository('App:Event')->find($id);
+           $event->setName($name);
+           $event->setDate($date);
+           $event->setDescription($description);
+           $event->setEmail($email);
+           $event->setAddress($address);
+           $event->setImage($image);
+           $event->setPhone($phone);
+           $event->setCapacity($capacity);
+           $event->setURL($url);
+           
+       
+           $em->flush();
+           $this->addFlash(
+                   'notice',
+                   'Event updated'
+                   );
+           return $this->redirectToRoute('home_page');
+       }
+       return $this->render('event/edit_CR13.html.twig', array('event' => $event, 'form' => $form->createView()));
    }
 
 
